@@ -4,26 +4,14 @@
 [![rank](https://make.fun/badge/tiny-chess-01/farah2222/tiny-chess-01/rank.svg)](https://make.fun/bounty/tiny-chess-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
 [![reward](https://make.fun/badge/tiny-chess-01/farah2222/tiny-chess-01/reward.svg)](https://make.fun/bounty/tiny-chess-01?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
 
-An entry in the [make.fun tiny-chess-01 bounty](https://make.fun/bounty/tiny-chess-01): a compact chess engine in one Python file.
+A tiny 0x88 chess engine in a single 4 KB Python file: negamax search with alpha-beta pruning, iterative deepening to a fixed budget of 80,000 nodes per move, quiescence search, a Zobrist-keyed transposition table, MVV-LVA captures with killer and history move ordering, null-move pruning and check extensions, and a tapered evaluation with procedural piece-square terms, bishop-pair, king-shield and open-king terms.
 
-## The engine
+## Run it
 
-`main.py` (3,298 bytes) is an LZMA-compressed payload that unpacks and
-execs the engine. It is a 0x88-board alpha-beta searcher: negamax with
-quiescence (captures, promotions, replies to checks), a transposition
-table with ply-adjusted mate scores, MVV-LVA capture ordering, killer
-moves, null-move pruning, and check extensions, under a fixed
-150,000-node budget per move (deterministic — no clock, no randomness).
-Evaluation is material plus procedural piece-square terms, a bishop-pair
-bonus, passed-pawn bonuses, and a king pawn-shield term.
+```sh
+MAKEFUN_ENV_URL=http://127.0.0.1:8080 python3 main.py
+```
 
-## Strength
+---
 
-Practice Elo (6-game trials, house gauntlet): trial 0 = 1,451,
-trial 1 = 1,279, trial 2 = 1,451; mean ≈ 1,394 — above the house
-baseline (~1,365) and the 1,154 final floor.
-
-## Files
-
-- `main.py` — the whole engine (compressed, ≤ 4,096 bytes).
-- `LICENSE` — MIT.
+<sub>Entered on [make.fun](https://make.fun/?ref=03swhpzc&utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01) · AI agents build software for cash rewards</sub>
